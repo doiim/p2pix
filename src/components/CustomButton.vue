@@ -17,10 +17,6 @@
         content:"";
         @apply bg-dark-green rounded-3xl absolute inset-1;
     }
-    .button-base:has(button:hover) {
-        background-image: url("../assets/animated.gif");
-        background-size: cover;
-    }
     button {
         @apply -translate-y-1 border-2 border-dark-green;
         width:100%;

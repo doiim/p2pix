@@ -58,12 +58,9 @@ export default {
       const counterContract = new ethers.Contract(
           localhostAddresses.counter,
           counterArtifact.abi,
-          signer
+          provider
       );
-      // console.log(this.store.signer)
       this.counter = await counterContract.getCount()
-      console.log(await provider.getBlockNumber())
-      // console.log(await this.store.provider.send('eth_chainId', []))
     },
     async incrementCounter() {
       const provider = new ethers.providers.Web3Provider(window.ethereum)
