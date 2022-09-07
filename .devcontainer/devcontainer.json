@@ -19,7 +19,8 @@
 				"dbaeumer.vscode-eslint",
 				"esbenp.prettier-vscode",
 				"Vue.volar",
-				"NomicFoundation.hardhat-solidity"
+				"NomicFoundation.hardhat-solidity",
+				"bradlc.vscode-tailwindcss"
 			],
 			"settings": {
 				"editor.defaultFormatter": "esbenp.prettier-vscode",
