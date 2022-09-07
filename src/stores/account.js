@@ -1,25 +1,25 @@
-import { ethers } from "ethers";
+import { ethers } from 'ethers'
 import { defineStore } from 'pinia'
 
 export const useAccountStore = defineStore('account', {
   state: () => {
-    return { 
+    return {
       account: '',
       network: 0,
-      error: ''
+      error: '',
     }
   },
   // could also be defined as
   // state: () => ({ count: 0 })
   actions: {
-    async setAccount(a,n) {
+    async setAccount(a, n) {
       this.account = a
       this.network = n
     },
     unsetAccount() {
-      this.account=''
-      this.network=0
-      this.error= ''
+      this.account = ''
+      this.network = 0
+      this.error = ''
     },
   },
 })
