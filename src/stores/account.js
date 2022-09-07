@@ -19,7 +19,7 @@ export const useAccountStore = defineStore('account', {
     unsetAccount() {
       this.account=''
       this.network=0
-      error= ''
+      this.error= ''
     },
   },
 })
