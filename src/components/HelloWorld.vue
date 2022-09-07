@@ -6,7 +6,7 @@
     A boilerplate for Web3 project to be used on Hackatons and start projects from scratch. It uses Vue3, Tailwind and Hardhat.
   </p>
   <hr class="m-5">
-  <p class="text-base px-5">You can use the "Connect Wallet" on top to get access to the button for increment the counter on it. Be sure you are connected to your local node or Goerli blockchain.</p>
+  <p class="text-base px-5">You can use the "Connect Wallet" on top to get access to the button for increment the counter on it. The app will request your wallet to add your local blockchain and connect to it.</p>
   <div class="grid md:grid-cols-1 gap-4 p-4">
     <CustomButton v-if="waiting">Wait...</CustomButton>
     <CustomButton v-if="!waiting && store.account == ''">Connect Wallet Before</CustomButton>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import {inject} from 'vue'
 import { ethers } from "ethers";
 
 import CustomButton from './CustomButton.vue'
@@ -31,9 +32,11 @@ import localhostAddresses from '../../deploys/localhost.json';
 import counterArtifact from '../../artifacts/contracts/counter.sol/Counter.json';
 
 export default {
+
   setup() {
       const store = useAccountStore()
-      return { store }
+      const getWalletSigner = inject('getWalletSigner')
+      return { store, getWalletSigner }
   },
   data() {
     return {
@@ -53,28 +56,26 @@ export default {
   methods: {
     async refreshCounter() {
       // The Contract object
-      const provider = new ethers.providers.Web3Provider(window.ethereum)
-      const signer = provider.getSigner()
       const counterContract = new ethers.Contract(
           localhostAddresses.counter,
           counterArtifact.abi,
-          provider
+          this.getWalletSigner()
       );
       this.counter = await counterContract.getCount()
+      // console.log(await this.store.provider.send('eth_chainId', []))
+      return
     },
     async incrementCounter() {
-      const provider = new ethers.providers.Web3Provider(window.ethereum)
-      const signer = provider.getSigner()
       const counterContract = new ethers.Contract(
           localhostAddresses.counter,
           counterArtifact.abi,
-          signer
+          this.getWalletSigner()
       );
       const transaction = await counterContract.incrementCounter()
       this.waiting = true
       await transaction.wait()
+      await this.refreshCounter()
       this.waiting = false
-      this.refreshCounter()
     }
   }
 }
