@@ -1,0 +1,77 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "dev",
+			"problemMatcher": [
+				{
+					"base": "$vite",
+					"background": {
+						"beginsPattern": "VITE v",
+						"endsPattern": "127.0.0.1"
+					}
+				}
+			],
+			"label": "Start web server",
+			"isBackground": true,
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new",
+				"showReuseMessage": false,
+				"clear": false
+			}
+		},
+		{
+			"label": "Start Ethereum node",
+			"type": "shell",
+			"command": "npx hardhat node",
+			"problemMatcher": [
+				{
+					"base": "$tsc-watch",
+					"background": {
+						"beginsPattern": "Started HTTP and WebSocket JSON-RPC",
+						"endsPattern": "0xdf57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e"
+					}
+				}
+			],
+			"isBackground": true,
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new",
+				"showReuseMessage": false,
+				"clear": false
+			}
+		},
+		{
+			"label": "Compile contracts",
+			"type": "shell",
+			"command": "npx hardhat compile",
+			"problemMatcher": [],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": false
+			}
+		},
+		{
+			"label": "Initial setup",
+			"type": "shell",
+			"command": "npx hardhat run --network localhost scripts/1-deploy-counter.js",
+			"problemMatcher": [],
+			"dependsOn": [
+				"Compile contracts",
+				"Start Ethereum node",
+				"Start web server"
+			],
+			"dependsOrder": "sequence"
+		}
+	]
+}
