@@ -6,7 +6,7 @@
 			"script": "dev",
 			"problemMatcher": [
 				{
-					"base": "$vite",
+					"base": "$tsc-watch",
 					"background": {
 						"beginsPattern": "VITE v",
 						"endsPattern": "127.0.0.1"
