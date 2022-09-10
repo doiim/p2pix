@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	// PRODUÇÃO = false
 	// HOMOLOGAÇÃO = true
 	sandbox: false,
