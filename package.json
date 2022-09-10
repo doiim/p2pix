@@ -9,6 +9,7 @@
     "format": "prettier --write 'src/**/*.{js,json}'"
   },
   "dependencies": {
+    "gn-api-sdk-node": "^2.0.8",
     "pinia": "^2.0.21",
     "vue": "^3.2.38"
   },
