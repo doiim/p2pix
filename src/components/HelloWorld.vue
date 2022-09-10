@@ -30,10 +30,30 @@ import AccountWidget from './AccountWidget.vue'
 import { useAccountStore } from '../stores/account'
 import localhostAddresses from '../../deploys/localhost.json';
 import counterArtifact from '../../artifacts/contracts/counter.sol/Counter.json';
+import GN from 'gn-api-sdk-node';
+import pixConfig from '../../gn.pix.config.js'
 
 export default {
 
   setup() {
+      const gerencianet = new GN(pixConfig);
+      var chargeInput = {
+        items: [{
+          name: 'Product A',
+          value: 1000,
+          amount: 2
+        }]
+      }
+      gerencianet
+        .createCharge({}, chargeInput)
+        .then((resposta) => {
+              console.log(resposta)
+          })
+          .catch((error) => {
+              console.log(error);
+          })
+          .done();
+          
       const store = useAccountStore()
       const getWalletSigner = inject('getWalletSigner')
       return { store, getWalletSigner }
