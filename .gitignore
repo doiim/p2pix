@@ -26,4 +26,6 @@ dist-ssr
 *.sw?
 
 # Sensitive data
-pix.config.js
+gn.pix.config.js
+gn.pix.prod.pem
+gn.pix.dev.pem

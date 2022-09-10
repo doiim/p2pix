@@ -4,5 +4,5 @@ module.exports = {
 	sandbox: false,
 	client_id: 'Client_Id',
 	client_secret: 'Client_Secret',
-	pix_cert: './prod.pem'
+	pix_cert: './gn.pix.prod.pem'
 };
