@@ -1,24 +1,25 @@
 <template>
-  <div class="px-5">presented by doiim</div>
-  <h1>Web3 Boilerplate</h1>
-  <AccountWidget/>
-  <p class="text-base px-5">
-    A boilerplate for Web3 project to be used on Hackatons and start projects from scratch. It uses Vue3, Tailwind and Hardhat.
-  </p>
-  <hr class="m-5">
-  <p class="text-base px-5">You can use the "Connect Wallet" on top to get access to the button for increment the counter on it. The app will request your wallet to add your local blockchain and connect to it.</p>
-  <div class="grid md:grid-cols-1 gap-4 p-4">
-    <CustomButton v-if="waiting">Wait...</CustomButton>
-    <CustomButton v-if="!waiting && store.account == ''">Connect Wallet Before</CustomButton>
-    <CustomButton v-if="!waiting && store.account != ''" @click="incrementCounter">count is {{counter}}</CustomButton>
+  <div class="landpage-header">
+    <div class="px-5">presented by doiim & tickspread</div>
+    <br/>
+    <h1>Web3 Trustless Payments</h1>
+    <AccountWidget/>
   </div>
-  <p class="text-base px-5">Additional references for the project and documentations just follow the links below:</p>
-  <ul>
-    <li><a href="https://github.com/doiim/web3-boilerplate">Github Repo</a></li>
-    <li><a href="https://vitejs.dev/guide/">Vite Docs</a></li>
-    <li><a href="https://hardhat.org/hardhat-runner/docs/getting-started#quick-start">Hardhat Quickstart</a></li>
-  </ul>
-</template>
+  <div class="landpage-container">
+
+    <p class="text-base px-5"></p>
+
+    <hr class="m-5">
+
+    <p class="text-base px-5">Connect your wallet to bid or ask orders.</p>
+
+    <div class="grid md:grid-cols-1 gap-4 p-4">
+      <CustomButton v-if="waiting">Wait...</CustomButton>
+      <CustomButton v-if="!waiting && store.account == ''">Connect Wallet Before</CustomButton>
+      <CustomButton v-if="!waiting && store.account != ''" @click="incrementCounter">count is {{counter}}</CustomButton>
+    </div>
+  </div>
+  </template>
 
 <script>
 import {inject} from 'vue'

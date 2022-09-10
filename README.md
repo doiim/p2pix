@@ -1,10 +1,8 @@
-# Web3 Project Boilerplate - doiim
+# p2pix w3 trustless payments
 
-![Web3 Boilerplate Image](https://user-images.githubusercontent.com/13040410/188042648-ac24c32c-1842-4b9b-9715-1713f448625e.png)
+A Web3 project to be used on Hackatons and start projects from scratch. It uses Vue3, Tailwind and Hardhat.
 
-A boilerplate for Web3 project to be used on Hackatons and start projects from scratch. It uses Vue3, Tailwind and Hardhat.
-
-The boilerplate is a simple interface with a connection widget that connects Metamask and a button to increment a vriable on a smart-contract.
+The project has a simple interface with a connection widget that connects Metamask and a button to increment a vriable on a smart-contract.
 
 ## Installation
 

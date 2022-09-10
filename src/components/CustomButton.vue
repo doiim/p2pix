@@ -10,12 +10,13 @@
 
 <style scoped>
     .button-base {
-        @apply bg-black px-1 pb-1 rounded-3xl relative shadow;
+        background: transparent;
+        @apply rounded-3xl shadow;
         width: 100%;
     }
     .button-base:before {
         content:"";
-        @apply bg-dark-green rounded-3xl absolute inset-1;
+        @apply bg-dark-green rounded-3xl inset-1;
     }
     button {
         @apply -translate-y-1 border-2 border-dark-green;

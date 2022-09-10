@@ -44,7 +44,7 @@ export default {
 
 <style scoped>
 .button-account {
-    @apply bg-black text-white p-2 rounded-3xl shadow;
+    @apply bg-light-green text-white p-2 px-3 rounded-md shadow capitalize;
 }
 .top-left {
     top: 0px;

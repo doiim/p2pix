@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -45,6 +45,10 @@
     }
 }
 
-.main-container {
-    @apply container light-shadow dark:dark-shadow bg-dark-green max-w-xl min-h-screen;
+.landpage-container {
+    @apply container max-w-xl min-h-screen;
+}
+
+.root {
+    @apply min-h-screen;
 }
