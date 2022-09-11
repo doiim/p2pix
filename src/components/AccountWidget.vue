@@ -7,9 +7,9 @@
             <button v-if="store.account != ''" class="button-account" >
                 {{ store.account.substring(0,6) }}...{{ store.account.substring(store.account.length-4,store.account.length) }}
             </button>
-            <button v-if="store.account != ''" class="button-account" @click="disconnectAccount">
-                disconnect
-            </button>
+            <!-- <button v-if="store.account != ''" class="button-account" @click="disconnectAccount"> -->
+                <!-- disconnect -->
+            <!-- </button> -->
         </div>
     </div>
 </template>
@@ -44,7 +44,7 @@ export default {
 
 <style scoped>
 .button-account {
-    @apply bg-black text-white p-2 rounded-3xl shadow;
+    @apply bg-light-green text-white p-2 px-3 rounded-md shadow capitalize;
 }
 .top-left {
     top: 0px;

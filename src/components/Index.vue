@@ -1,5 +1,4 @@
 <template>
-
   <div class="landpage-header">
     <div class="px-5">presented by doiim & tickspread</div>
     <br/>
@@ -17,8 +16,9 @@
         <HeroButton v-if="!waiting && store.account != ''" @click="incrementCounter">count is {{counter}}</HeroButton>
       </div>
     -->
-    
-    <HeroButton @click="loadOrders">See Orders</HeroButton>
+    <HeroButton>
+    <router-link to="/orderbook">See Orders</router-link>
+    </HeroButton>
   </div>
   </template>
 

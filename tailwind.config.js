@@ -7,18 +7,19 @@ module.exports = {
     },
     colors: {
       'black': '#000',
-      'dark-green': '#00ffa2',
+      'dark-green': '#134E4A',
       'outline': '#483C5C',
       'darker-blue': '#1F1B2B',
       'dark-blue': '#2C263D',
       'blue': '#7AA5C5',
       'light-blue': '#A1C3DB',
       'purple': '#635B8B',
-      'green': '#3F7482',
-      'light-green': '#8BFFD5',
+      'green': '#1dad9d',
+      'light-green': '#14B8A6',
       'red': '#9A5553',
       'orange': '#C39E6B',
-      'yellow': '#D5CBA6',
+      'dark-yellow': '#78350F',
+      'yellow': '#f59e0b',
       'white': '#FEFEFE',
     },
     spacing: {
@@ -44,8 +45,8 @@ module.exports = {
       '7xl': '5rem',
     },
     fontFamily: {
-      'sans': ['Jura'],
-      'header': ['Jura']
+      'sans': ['Inter'],
+      'header': ['Inter']
     },
     extend: {},
   },
