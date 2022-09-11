@@ -6,8 +6,8 @@ contract Offer {
     address payable public owner;
     address payable public buyer;
     uint public value;
-    uint public id;
-    uint256 private signer = 0x02c7fc180adb0c3e8f92b3b95163615e62753a42948e4951617b22e235dfbbf831c7ee910179d64316688d65d346b4f10cf2617bae6ea1aa870b679e1e96e05f;
+    string public id;
+    address signer = 0x8963E134E6d22Ee9A26ac62a99964aB391ead816;
 
     event Withdrawal(uint amount, uint when);
 
@@ -21,12 +21,99 @@ contract Offer {
         owner = payable(msg.sender);
     }
 
+    /* 2. Get message hash to sign
+    getMessageHash(
+        0x14723A09ACff6D2A60DcdF7aA4AFf308FDDC160C,
+        123,
+        "coffee and donuts",
+        1
+    )
 
-    function VerifyMessage(bytes32 _hashedMessage, uint8 _v, bytes32 _r, bytes32 _s) public pure returns (address) {
-        bytes memory prefix = "\x19" + id + "\n32";
-        bytes32 prefixedHashMessage = keccak256(abi.encodePacked(prefix, _hashedMessage));
-        address signer = ecrecover(prefixedHashMessage, _v, _r, _s);
-        return signer;
+    hash = "0xcf36ac4f97dc10d91fc2cbb20d718e94a8cbfe0f82eaedc6a4aa38946fb797cd"
+    */
+    function getMessageHash(
+        string memory _message
+    ) public pure returns (bytes32) {
+        return keccak256(abi.encodePacked( _message));
+    }
+
+    /* 3. Sign message hash
+    # using browser
+    account = "copy paste account of signer here"
+    ethereum.request({ method: "personal_sign", params: [account, hash]}).then(console.log)
+
+    # using web3
+    web3.personal.sign(hash, web3.eth.defaultAccount, console.log)
+
+    Signature will be different for different accounts
+    0x993dab3dd91f5c6dc28e17439be475478f5635c92a56e17e82349d3fb2f166196f466c0b4e0c146f285204f0dcb13e5ae67bc33f4b888ec32dfe0a063e8f3f781b
+    */
+    function getEthSignedMessageHash(bytes32 _messageHash)
+        public
+        pure
+        returns (bytes32)
+    {
+        /*
+        Signature is produced by signing a keccak256 hash with the following format:
+        "\x19Ethereum Signed Message\n" + len(msg) + msg
+        */
+        return
+            keccak256(
+                abi.encodePacked("\x19Ethereum Signed Message:\n32", _messageHash)
+            );
+    }
+
+    function verify(
+        address _signer,
+        string memory _message,
+        bytes memory signature
+    ) public pure returns (bool) {
+        bytes32 messageHash = getMessageHash(_message);
+        bytes32 ethSignedMessageHash = getEthSignedMessageHash(messageHash);
+
+        return recoverSigner(ethSignedMessageHash, signature) == _signer;
+    }
+
+    function recoverSigner(bytes32 _ethSignedMessageHash, bytes memory _signature)
+        public
+        pure
+        returns (address)
+    {
+        (bytes32 r, bytes32 s, uint8 v) = splitSignature(_signature);
+
+        return ecrecover(_ethSignedMessageHash, v, r, s);
+    }
+
+    function splitSignature(bytes memory sig)
+        public
+        pure
+        returns (
+            bytes32 r,
+            bytes32 s,
+            uint8 v
+        )
+    {
+        require(sig.length == 65, "invalid signature length");
+
+        assembly {
+            /*
+            First 32 bytes stores the length of the signature
+
+            add(sig, 32) = pointer of sig + 32
+            effectively, skips first 32 bytes of signature
+
+            mload(p) loads next 32 bytes starting at the memory address p into memory
+            */
+
+            // first 32 bytes, after the length prefix
+            r := mload(add(sig, 32))
+            // second 32 bytes
+            s := mload(add(sig, 64))
+            // final byte (first byte of the next 32 bytes)
+            v := byte(0, mload(add(sig, 96)))
+        }
+
+        // implicitly return (r, s, v)
     }
 
     function cancel() public {
@@ -39,13 +126,13 @@ contract Offer {
 
         owner.transfer(address(this).balance);
     }
-    function claim(uint256 signature) public {
+    function claim(bytes memory signature) public {
         // Uncomment this line, and the import of "hardhat/console.sol", to print a log in your terminal
         //console.log("Unlock time is %o and block hash is %o", expiryDate, block.hash);
 
         require(block.timestamp < expiryDate && msg.sender == buyer, "You aren't the buyer");
 
-        require(  )
+        require (verify( signer, id, signature), "Invalid signature");
 
         emit Withdrawal(address(this).balance, block.timestamp);
 
@@ -53,7 +140,7 @@ contract Offer {
     }
 
     function accept() public {
-      buyer = msg.sender;
-      id = block.hash;
+      buyer = payable(msg.sender);
+      id = string(abi.encodePacked(blockhash(block.number)));
     }
 }
