@@ -1,14 +1,15 @@
 
 <template>
   <div class="hero-gradient">
+    {{'./assets/product-logo' + ($route.path == '/' ? '-white':'')+'.png'}}
     <div class="header bg-transparent">
-      <img class="product-logo" src="./assets/product-logo-white.png"/>
+      <img class="product-logo" :src="'/assets/product-logo' + ($route.path == '/' ? '-white':'')+'.png'"/>
     </div>
     <!-- <img alt="Header Image" src="./assets/header.png" class="my-4"/> -->
-    
     <router-view></router-view>
   </div>
 </template>
+
 
 <style scoped>
 .hero-gradient{
