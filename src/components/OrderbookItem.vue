@@ -29,7 +29,7 @@
         </div>
 
         <div class="actions ml-auto">
-          <button class="button-green" @click="testApi" :disabled="store.account == ''"> Comprar </button>
+          <button class="button-green" @click="testApi" :disabled="waiting && store.account == ''"> Comprar </button>
         
         </div>
       </li>
@@ -50,24 +50,61 @@ export default {
   },
   data(){
       return {
-
+        offerId : null,
+        waiting : false
       }
   },
   methods:{
     formatAddress(address){
       return '#' + address.substring(0,4) + '...' + address.substring(address.length-4,address.length) 
     },
+    qrCodeDecoder(){
 
-    testApi(){
-      //store.account
-
-      axios.get('https://p2pix.noho.st/api/qr/', {
+    },
+    async testApi(){
+      
+      await confirmBuy(/*store.account*/)
+        
+      axios.get('https://p2pix.noho.st/api/create/' + offerId + '/5.00', {
       // x: 1}, {
       // headers: {
       //   'Content-Type': 'multipart/form-data'
       // }
-      }).then(({data})=> console.log(data));
-    }
+      }).then(({data})=> {
+        console.log(data);
+        qrCodeDecoder(data); 
+      });
+    },
+    async confirmBuy() {
+      // The Contract object
+      const offerContract = new ethers.Contract(
+          localhostAddresses.offer,
+          offerArtifact.abi,
+          this.getWalletSigner()
+      );
+      const transaction = await offerContract.accept()
+      this.waiting = true
+      await transaction.wait()
+      this.waiting = false
+      this.enableClaim()
+      // console.log(await this.store.provider.send('eth_chainId', []))
+      return
+    },
+    async enableClaim() {
+      
+    },
+    // async claimTokens() {
+    //   const offerContract = new ethers.Contract(
+    //       localhostAddresses.offer,
+    //       offerArtifact.abi,
+    //       this.getWalletSigner()
+    //   );
+    //   const transaction = await offerContract.incrementCounter()
+    //   this.waiting = true
+    //   await transaction.wait()
+    //   await this.refreshCounter()
+    //   this.waiting = false
+    // }
   },
   props:{ order: { type: Object } },
 }
