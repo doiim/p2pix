@@ -1,8 +1,5 @@
 # p2pix w3 trustless payments
 
-A Web3 project to be used on Hackatons and start projects from scratch. It uses Vue3, Tailwind and Hardhat.
-
-The project has a simple interface with a connection widget that connects Metamask and a button to increment a vriable on a smart-contract.
 
 ## Installation
 

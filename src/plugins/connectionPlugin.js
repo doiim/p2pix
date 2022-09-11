@@ -13,12 +13,12 @@ export default {
         // Add/Switch to testnet
         const networkData = [
           {
-            chainId: '0x7a69',
-            chainName: 'Local Testnet',
-            rpcUrls: ['http://127.0.0.1:8545/'],
+            chainId: '80001',
+            chainName: 'Polygon Mumbai',
+            rpcUrls: ['https://matic-mumbai.chainstacklabs.com'],
             nativeCurrency: {
-              name: 'Ethereum',
-              symbol: 'ETH',
+              name: 'MATIC',
+              symbol: 'MATIC',
               decimals: 18,
             },
           },
