@@ -1,23 +1,24 @@
 <template>
+
   <div class="landpage-header">
     <div class="px-5">presented by doiim & tickspread</div>
     <br/>
-    <h1>Web3 Trustless Payments</h1>
     <AccountWidget/>
   </div>
+  <h1>Web3 Trustless Payments</h1>
+  <hr class="max-w-xl m-auto mt-1 mb-2">
+  <h2 class="text-base px-5">Fiat/Cripto descentralized swap service.</h2>    
   <div class="landpage-container">
 
-    <p class="text-base px-5"></p>
-
-    <hr class="m-5">
-
-    <p class="text-base px-5">Connect your wallet to bid or ask orders.</p>
-
-    <div class="grid md:grid-cols-1 gap-4 p-4">
-      <CustomButton v-if="waiting">Wait...</CustomButton>
-      <CustomButton v-if="!waiting && store.account == ''">Connect Wallet Before</CustomButton>
-      <CustomButton v-if="!waiting && store.account != ''" @click="incrementCounter">count is {{counter}}</CustomButton>
-    </div>
+    <!--
+      <div class="grid md:grid-cols-1 gap-4 p-4">
+        <HeroButton v-if="waiting">Wait...</HeroButton>
+        <HeroButton v-if="!waiting && store.account == ''" disabled>Connect Wallet Before</HeroButton>
+        <HeroButton v-if="!waiting && store.account != ''" @click="incrementCounter">count is {{counter}}</HeroButton>
+      </div>
+    -->
+    
+    <HeroButton @click="loadApp">See Orders</HeroButton>
   </div>
   </template>
 
@@ -25,7 +26,7 @@
 import {inject} from 'vue'
 import { ethers } from "ethers";
 
-import CustomButton from './CustomButton.vue'
+import HeroButton from './HeroButton.vue'
 import AccountWidget from './AccountWidget.vue'
 
 import { useAccountStore } from '../stores/account'
@@ -45,7 +46,7 @@ export default {
       waiting: false
     }
   },
-  components: {CustomButton, AccountWidget},
+  components: {HeroButton, AccountWidget},
   watch: {
     // Whenever account changes, this function will run
     async 'store.account'(account) {
@@ -55,6 +56,9 @@ export default {
     }
   },
   methods: {
+    loadApp(){
+
+    },
     async refreshCounter() {
       // The Contract object
       const counterContract = new ethers.Contract(
@@ -82,5 +86,3 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>

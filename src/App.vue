@@ -4,6 +4,9 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <div class="hero-gradient">
+    <div class="header bg-transparent">
+      <img class="product-logo" src="./assets/product-logo-white.png"/>
+    </div>
     <!-- <img alt="Header Image" src="./assets/header.png" class="my-4"/> -->
     <HelloWorld />
   </div>
@@ -11,7 +14,6 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <style scoped>
 .hero-gradient{
-  padding-top: 72px;
   background: linear-gradient(215deg, #f59e0b, #1dad9d, #1dad9d);
   background-size: 400% 400%;
 }
@@ -34,4 +36,12 @@ import HelloWorld from './components/HelloWorld.vue'
 @-moz-keyframes HeroGradientOff {0%{background-position:0% 100%}100%{background-position:100% 0%}}
 @keyframes HeroGradientOff {0%{background-position:0% 100%}100%{background-position:100% 0%}}
 
+.header{
+  padding-top: 24px;
+  margin-bottom: 36px;
+}
+.product-logo{
+  margin-left: 40px;
+  margin-top: 10px;
+}
 </style>
