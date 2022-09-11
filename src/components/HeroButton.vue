@@ -5,7 +5,11 @@
 <script setup>
 </script>
 
-<style scoped>
+<style>
+    .hero-button a{
+        text-decoration: none!important ;
+        color: white!important ;
+    }
     .hero-button{
         background: transparent;
         background-color: transparent;

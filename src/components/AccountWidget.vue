@@ -1,13 +1,13 @@
 <template>
     <div class="absolute top-left w-screen h-screen p-3">
         <div class="fixed top-right m-2 grid grid-rows-2 grid-flow-col gap-2 justify-items-end">
-            <button v-if="store.account == ''" class="button-account" @click="connectAccount">
+            <button v-if="store.account == ''" class="button-green" @click="connectAccount">
                 Connect Wallet
             </button>
-            <button v-if="store.account != ''" class="button-account" >
+            <button v-if="store.account != ''" class="button-green" >
                 {{ store.account.substring(0,6) }}...{{ store.account.substring(store.account.length-4,store.account.length) }}
             </button>
-            <!-- <button v-if="store.account != ''" class="button-account" @click="disconnectAccount"> -->
+            <!-- <button v-if="store.account != ''" class="button-green" @click="disconnectAccount"> -->
                 <!-- disconnect -->
             <!-- </button> -->
         </div>
@@ -42,10 +42,7 @@ export default {
 }
 </script>
 
-<style scoped>
-.button-account {
-    @apply bg-light-green text-white p-2 px-3 rounded-md shadow capitalize;
-}
+<style>
 .top-left {
     top: 0px;
     left: 0px;

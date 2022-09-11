@@ -46,6 +46,10 @@
     }
 }
 
+.button-green {
+    @apply bg-light-green text-white p-2 px-3 rounded-md shadow capitalize;
+}
+
 .landpage-container {
     @apply container max-w-xl min-h-screen;
 }
