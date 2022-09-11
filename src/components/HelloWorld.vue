@@ -1,23 +1,6 @@
 <template>
 
   <div class="landpage-header">
-    <div class="px-5">presented by doiim & tickspread</div>
-    <br/>
-    <AccountWidget/>
-  </div>
-  <h1>Web3 Trustless Payments</h1>
-  <hr class="max-w-xl m-auto mt-1 mb-2">
-  <h2 class="text-base px-5">Fiat/Cripto descentralized swap service.</h2>    
-  <div class="landpage-container">
-
-    <!--
-      <div class="grid md:grid-cols-1 gap-4 p-4">
-        <HeroButton v-if="waiting">Wait...</HeroButton>
-        <HeroButton v-if="!waiting && store.account == ''" disabled>Connect Wallet Before</HeroButton>
-        <HeroButton v-if="!waiting && store.account != ''" @click="incrementCounter">count is {{counter}}</HeroButton>
-      </div>
-    -->
-    
     <HeroButton @click="loadOrders">See Orders</HeroButton>
   </div>
   </template>

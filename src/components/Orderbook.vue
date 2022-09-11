@@ -1,6 +1,6 @@
 <template>
-  <h1 class="text-6xl leading-none font-extrabold tracking-tight normal-case">Compre tokens fazendo <br/> <span class="text-green"> apenas um pix </Span></h1>
-  <h2 class="text-base leading-7 px-5 text-light">Uma solução p2p para negociar token.</h2>    
+  <h1 class="text-6xl leading-none font-extrabold tracking-tight normal-case">Compre tokens fazendo <br/> <span class="text-green drop-shadow-sm"> apenas um pix </Span></h1>
+  <h2 class="text-base leading-7 px-5 text-light">Uma solução p2p para negociar tokens.</h2>    
   <div class="orderlist-container">
     <!-- TABLE HERE -->
     
@@ -28,14 +28,14 @@ export default {
   data() {
     return {
       orderbooks: [{
-            seller: "#91..495",
+            seller: "0x2546BcD3c84621e976D8185a91A922aE77ECEc30",
             price: 993.40,
             token: "ETH",
             tokenAmount: 0.02,
             type: "Oferta",
             expiryDate: "2d:24h:45m"
         },{
-            seller: "#91..495",
+            seller: "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199",
             price: 41.12,
             token: "IOT",
             tokenAmount: 0.014,

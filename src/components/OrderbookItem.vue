@@ -6,7 +6,7 @@
               <circle cx="20" cy="20" r="18" stroke="gray" stroke-width="2" fill="teal" />
             </svg>
             <div class="seller">
-              {{ order.seller }}
+              {{ formatAddress(order.seller) }}
             </div>
           </div>         
         </div>
@@ -54,8 +54,14 @@ export default {
       }
   },
   methods:{
+    formatAddress(address){
+      return '#' + address.substring(0,4) + '...' + address.substring(address.length-4,address.length) 
+    },
+
     testApi(){
-      axios.get('https://p2pix.noho.st/api', {
+      //store.account
+
+      axios.get('https://p2pix.noho.st/api/qr/', {
       // x: 1}, {
       // headers: {
       //   'Content-Type': 'multipart/form-data'
