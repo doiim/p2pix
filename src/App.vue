@@ -1,6 +1,3 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
 
 <template>
   <div class="hero-gradient">
@@ -8,7 +5,8 @@ import HelloWorld from './components/HelloWorld.vue'
       <img class="product-logo" src="./assets/product-logo-white.png"/>
     </div>
     <!-- <img alt="Header Image" src="./assets/header.png" class="my-4"/> -->
-    <HelloWorld />
+    
+    <router-view></router-view>
   </div>
 </template>
 

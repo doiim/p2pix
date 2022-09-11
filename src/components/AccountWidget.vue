@@ -7,9 +7,9 @@
             <button v-if="store.account != ''" class="button-account" >
                 {{ store.account.substring(0,6) }}...{{ store.account.substring(store.account.length-4,store.account.length) }}
             </button>
-            <button v-if="store.account != ''" class="button-account" @click="disconnectAccount">
-                disconnect
-            </button>
+            <!-- <button v-if="store.account != ''" class="button-account" @click="disconnectAccount"> -->
+                <!-- disconnect -->
+            <!-- </button> -->
         </div>
     </div>
 </template>
