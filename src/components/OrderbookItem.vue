@@ -39,6 +39,7 @@
 <script>
 // import  from ''
 import {inject} from 'vue'
+import { ethers } from "ethers";
 import { useAccountStore } from '../stores/account'
 import axios from 'axios';
 
@@ -63,7 +64,7 @@ export default {
     },
     async testApi(){
       
-      await confirmBuy(/*store.account*/)
+      await this.confirmBuy(/*store.account*/)
         
       axios.get('https://p2pix.noho.st/api/create/' + offerId + '/5.00', {
       // x: 1}, {
