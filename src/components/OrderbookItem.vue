@@ -29,7 +29,7 @@
         </div>
 
         <div class="actions ml-auto">
-          <button class="button-green" @click="confirmationWindow" :disabled="store.account == ''"> Comprar </button>
+          <button class="button-green" @click="testApi" :disabled="store.account == ''"> Comprar </button>
         
         </div>
       </li>
@@ -40,6 +40,7 @@
 // import  from ''
 import {inject} from 'vue'
 import { useAccountStore } from '../stores/account'
+import axios from 'axios';
 
 export default {
   setup() {
@@ -51,6 +52,16 @@ export default {
       return {
 
       }
+  },
+  methods:{
+    testApi(){
+      axios.get('https://p2pix.noho.st/api', {
+      // x: 1}, {
+      // headers: {
+      //   'Content-Type': 'multipart/form-data'
+      // }
+      }).then(({data})=> console.log(data));
+    }
   },
   props:{ order: { type: Object } },
 }
