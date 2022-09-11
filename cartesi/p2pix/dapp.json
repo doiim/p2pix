@@ -1,0 +1,6 @@
+{
+  "fs": {
+    "files": [".env", "p2pix.py", "entrypoint.sh"],
+    "size": 131072
+  }
+}
