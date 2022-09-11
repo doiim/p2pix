@@ -4,8 +4,7 @@
       <br/>
     </div>
     <h1>Web3 Trustless Payments</h1>
-    <hr class="max-w-xl m-auto mt-1 mb-2">
-    <h2 class="text-base px-5">Fiat/Cripto descentralized swap service.</h2>    
+    <h2 class="text-base px-5">Decentralized fiat ➔ crypto swap service.</h2>    
     <div class="landpage-container">
       <!--
         <div class="grid md:grid-cols-1 gap-4 p-4">

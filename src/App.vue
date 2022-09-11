@@ -2,7 +2,9 @@
 <template>
   <div :class="'root ' + ($route.path == '/' ? 'hero-gradient':'')">
     <div :class="'header ' + ($route.path == '/' ? 'bg-transparent':'bg-white')">
-      <img class="product-logo" :src="'/assets/product-logo' + ($route.path == '/' ? '-white':'')+'.png'"/>
+      <router-link to="/">
+        <img class="product-logo" :src="'/assets/product-logo' + ($route.path == '/' ? '-white':'')+'.png'"/>
+      </router-link>
       <AccountWidget/>
     </div>
     <!-- <img alt="Header Image" src="./assets/header.png" class="my-4"/> -->

@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute top-left w-screen h-screen p-3">
+    <div>
         <div class="fixed top-right m-2 grid grid-rows-2 grid-flow-col gap-2 justify-items-end">
             <button v-if="store.account == ''" class="button-green" @click="connectAccount">
                 Connect Wallet

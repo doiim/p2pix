@@ -1,12 +1,11 @@
 <template>
   <h1 class="text-6xl leading-none font-extrabold tracking-tight normal-case">Compre tokens fazendo <br/> <span class="text-green"> apenas um pix </Span></h1>
-  <hr class="max-w-xl m-auto mt-1 mb-2">
-  <h2 class="text-base leading-7 px-5 text-">Uma solução p2p para negociar token.</h2>    
+  <h2 class="text-base leading-7 px-5 text-light">Uma solução p2p para negociar token.</h2>    
   <div class="orderlist-container">
     <!-- TABLE HERE -->
     
    <div class="flex-table">
-    <ul class="w-48 divide-y-2 divide-gray-200 flex-start">
+    <ul class="w-48 flex-start pt-5">
         <OrderbookItem
         v-for="orderbook in orderbooks"
         :key="orderbook.id"
@@ -33,14 +32,14 @@ export default {
             price: 993.40,
             token: "ETH",
             tokenAmount: 0.02,
-            type: "Offer",
+            type: "Oferta",
             expiryDate: "2d:24h:45m"
         },{
             seller: "#91..495",
             price: 41.12,
             token: "IOT",
             tokenAmount: 0.014,
-            type: "Offer",
+            type: "Oferta",
             expiryDate: "3d:11h:23m"
         }]
     }

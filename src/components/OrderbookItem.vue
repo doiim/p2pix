@@ -1,5 +1,5 @@
 <template>    
-    <li class="flex justify-between items-center space-x-2 py-2 px-4 bg-gray-100 whitespace-nowrap rounded">
+    <li class="flex justify-between items-center space-x-2 py-2 px-4 bg-white whitespace-nowrap rounded mb-3 mx-5 drop-shadow-md">
         <div class="flex-0">
           <div class="flex flex-row justify-start items-center space-x-2 bg-gray-100 whitespace-nowrap ">
             <svg height="40" width="40">
@@ -11,27 +11,25 @@
           </div>         
         </div>
         <div class="price">
-          <span class="bid">
-            {{ order.type }} :  {{ order.amount }}  {{ order.token }} 
+          <span class="bid text-light">
+            {{ order.type }}:  {{ order.tokenAmount }}  {{ order.token }} 
           </span>
           <span class="ask">
             ➔  R$ {{ order.price }}
           </span>
         </div>
         <div class="expiration">
-          <span>Time remaining</span>
+          <span class="text-light">Time remaining</span>
           <span class="clock text-green">
             🕘
           </span>
           <span class="ask-price">
-            
-
             {{ order.expiryDate }}
           </span>
         </div>
 
-        <div class="actions ml-auto order--1">
-          <button class="button-green" @click="confirmationWindow"> Comprar </button>
+        <div class="actions ml-auto">
+          <button class="button-green" @click="confirmationWindow" :disabled="store.account == ''"> Comprar </button>
         
         </div>
       </li>
@@ -40,16 +38,20 @@
 
 <script>
 // import  from ''
+import {inject} from 'vue'
+import { useAccountStore } from '../stores/account'
 
 export default {
-    setup() {
-        
-    },
-    data(){
-        return {
+  setup() {
+      const store = useAccountStore()
+      const getWalletSigner = inject('getWalletSigner')
+      return { store, getWalletSigner }
+  },
+  data(){
+      return {
 
-        }
-    },
-    props:{ order: { type: Object } },
+      }
+  },
+  props:{ order: { type: Object } },
 }
 </script>

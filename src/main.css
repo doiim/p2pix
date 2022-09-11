@@ -49,6 +49,14 @@
 .button-green {
     @apply bg-light-green text-white p-2 px-3 rounded-md shadow capitalize;
 }
+.button-green:disabled,
+.button-green:disabled:hover {
+    @apply bg-light-green text-white opacity-30;
+}
+
+.text-light{
+    opacity: 0.5!important;
+}
 
 .landpage-container {
     @apply container max-w-xl min-h-screen;
