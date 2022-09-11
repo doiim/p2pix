@@ -29,7 +29,7 @@
         </div>
 
         <div class="actions ml-auto">
-          <button class="button-green" @click="testApi" :disabled="store.account == ''"> Comprar </button>
+          <button class="button-green" @click="showPurchaseModal" :disabled="store.account == ''"> Comprar </button>
         
         </div>
       </li>
@@ -50,14 +50,31 @@ export default {
   },
   data(){
       return {
-
+        // showModal: false
       }
   },
   methods:{
     formatAddress(address){
       return '#' + address.substring(0,4) + '...' + address.substring(address.length-4,address.length) 
     },
-
+    showPurchaseModal(){
+      this.config = {
+            id:'alsdlasld',
+            type: 'Buy',
+            title: 'Confirm Order',
+            cancel: 'Resume',
+            confirm: 'Confirm',
+            hooks: {
+                confirm: this.confirmResultModal,
+                close: this.closeResultModal,
+            },
+        };
+        this.$root?.$el.dispatchEvent(
+            new CustomEvent('showPurchaseModal', {
+                detail: this.config,
+            }),
+        );
+    },
     testApi(){
       //store.account
 

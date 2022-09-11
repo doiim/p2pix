@@ -9,11 +9,14 @@
     </div>
     <!-- <img alt="Header Image" src="./assets/header.png" class="my-4"/> -->
     <router-view></router-view>
+
+    <Modals />
   </div>
 </template>
 
 <script>
 import AccountWidget from './components/AccountWidget.vue'
+import Modals from './components/Modals.vue';
 
 import { useAccountStore } from './stores/account'
 import {inject} from 'vue'
@@ -31,7 +34,10 @@ export default {
       waiting: false
     }
   },
-  components: {AccountWidget},
+  components: {
+    AccountWidget, 
+    Modals
+    },
 }
 
 </script>
