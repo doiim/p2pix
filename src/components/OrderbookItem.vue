@@ -29,7 +29,7 @@
         </div>
 
         <div class="actions ml-auto">
-          <button class="button-green" @click="testApi" :disabled="waiting && store.account == ''"> Comprar </button>
+          <button class="button-green" @click="testApi" :disabled="!waiting && store.account == ''"> Comprar </button>
         
         </div>
       </li>
