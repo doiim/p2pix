@@ -13,9 +13,10 @@ export default {
         // Add/Switch to testnet
         const networkData = [
           {
-            chainId: '80001',
-            chainName: 'Polygon Mumbai',
-            rpcUrls: ['https://matic-mumbai.chainstacklabs.com'],
+            chainId: '0x13881',
+            chainName: 'Polygon-mumbai Testnet',
+            rpcUrls: ["https://rpc-mumbai.matic.today"],
+            blockExplorerUrls: ["https://explorer-mumbai.maticvigil.com"],
             nativeCurrency: {
               name: 'MATIC',
               symbol: 'MATIC',
@@ -23,12 +24,25 @@ export default {
             },
           },
         ]
-
+        
+        /*
+        const networkData = [
+          {
+            chainId: '0x7a69',
+            chainName: 'Local Testnet',
+            rpcUrls: ['http://127.0.0.1:8545/'],
+            nativeCurrency: {
+              name: 'Ethereum',
+              symbol: 'ETH',
+              decimals: 18,
+            },
+          },
+        */
+       
         await window.ethereum.request({
           method: 'wallet_addEthereumChain',
           params: networkData,
         })
-
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
           params: [{ chainId: '0x7a69' }],
