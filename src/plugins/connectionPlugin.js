@@ -10,7 +10,8 @@ export default {
           return { error: 'Metamask not found!' }
         }
 
-        // Add/Switch to testnet
+        // Add/Switch to mumbai Testnet
+        /*
         const networkData = [
           {
             chainId: '0x13881',
@@ -23,9 +24,10 @@ export default {
               decimals: 18,
             },
           },
-        ]
-        
-        /*
+        ]        
+        */
+
+        // Add/Switch to local testnet
         const networkData = [
           {
             chainId: '0x7a69',
@@ -37,8 +39,8 @@ export default {
               decimals: 18,
             },
           },
-        */
-       
+        ]
+
         await window.ethereum.request({
           method: 'wallet_addEthereumChain',
           params: networkData,
