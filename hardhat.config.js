@@ -9,6 +9,13 @@ module.exports = {
     hardhat: {
       blockGasLimit: 30000000,
     },
+    mumbai:{
+      url: "https://matic-mumbai.chainstacklabs.com",
+      accounts: {
+        mnemonic: 'Thick Tarantulas Treated Everlasting Urchins Violently Unless Ants Unhooked Pretentious Unitards Creatively',
+        count: 1
+      }
+    }
     // goerli: {
     //   url: apiGoerli,
     //   accounts: {

@@ -6,7 +6,7 @@
               <circle cx="20" cy="20" r="18" stroke="gray" stroke-width="2" fill="teal" />
             </svg>
             <div class="seller">
-              {{ formatAddress(order.seller) }}
+              {{ sellerAddress }}
             </div>
           </div>         
         </div>
@@ -15,7 +15,7 @@
             {{ order.type }}:  {{ order.tokenAmount }}  {{ order.token }} 
           </span>
           <span class="ask">
-            ➔  R$ {{ order.price }}
+            ➔  R$ {{ formatedPrice }}
           </span>
         </div>
         <div class="expiration">
@@ -29,8 +29,8 @@
         </div>
 
         <div class="actions ml-auto">
-          <button class="button-green" @click="testApi" :disabled="!waiting && store.account == ''"> Comprar </button>
-        
+          <button v-if="!qrCodeDisplay" class="button-green" @click="buyOrder" :disabled="waiting || store.account == ''"> Comprar </button>
+          <img v-if="qrCodeDisplay" :src="qrCodeValue" :size="qrCodeSize" />
         </div>
       </li>
 </template>
@@ -41,7 +41,10 @@
 import {inject} from 'vue'
 import { ethers } from "ethers";
 import { useAccountStore } from '../stores/account'
+import localhostAddresses from '../../deploys/localhost.json';
+import offerArtifact from '../../artifacts/contracts/offer.sol/Offer.json';
 import axios from 'axios';
+import QrcodeVue from 'qrcode.vue'
 
 export default {
   setup() {
@@ -52,48 +55,105 @@ export default {
   data(){
       return {
         offerId : null,
-        waiting : false
+        waiting : false,
+        PIXTixd : null,
+        qrCodeValue: '',
+        qrCodeSize: 100,
+        qrCodeDisplay: false
       }
   },
+  components: {
+    QrcodeVue,
+  },
+  computed:{
+    sellerAddress(){
+      return this.formatAddress(this.order.seller)
+    },
+    formatedPrice(){
+      return this.formatPrice(this.order.price)
+    }
+  },
   methods:{
+    generateTixd(length) {
+        let result           = '';
+        let characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      console.log(result)
+      return result;
+    },
     formatAddress(address){
       return '#' + address.substring(0,4) + '...' + address.substring(address.length-4,address.length) 
     },
-    qrCodeDecoder(){
-
+    formatPrice(price){
+      return price.toFixed(2)
     },
-    async testApi(){
+    formatDateTime(dateTime){
+      return // Todo
+    },
+    qrCodeDecoder(url){
+      ///v2/loc/:id/qrcode
+      console.log(url)
+      axios.get('https://p2pix.noho.st/api/qr/' + this.PIXTixd,{
+      // # i don't know if we should use headers here
+      }).then(({data}) =>{
+        console.log(data)
+        this.qrCodeValue = data
+        this.qrCodeDisplay = true
+        this.waiting = false
+      })
+    },
+    async buyOrder(){
+      console.log('test')
+      const offerContract = await this.acceptContract(/*store.account*/)
       
-      await this.confirmBuy(/*store.account*/)
-        
-      axios.get('https://p2pix.noho.st/api/create/' + offerId + '/5.00', {
+      console.log('test2')
+      // some tests
+      // const buyerAddress = this.getWalletSigner().provider.provider.selectedAddress
+      console.log(offerContract)
+
+      //return
+      axios.get('https://p2pix.noho.st/api/create/' + this.PIXTixd + '/' + this.formatedPrice, {
+
+      // # will we use request headers?
+
       // x: 1}, {
       // headers: {
       //   'Content-Type': 'multipart/form-data'
       // }
       }).then(({data})=> {
         console.log(data);
-        qrCodeDecoder(data); 
+        this.qrCodeDecoder(data.location); 
       });
     },
-    async confirmBuy() {
+    async acceptContract() {
+
+      // TODO
+      // we need to allocate *PIXTixd in the smartContract so we can add a watcher on
+      // the current Contract object that way, we can make tokens claimable if pix transaction is confirmed.
+      this.PIXTixd = this.generateTixd(35)
+
       // The Contract object
       const offerContract = new ethers.Contract(
           localhostAddresses.offer,
           offerArtifact.abi,
           this.getWalletSigner()
       );
+
       const transaction = await offerContract.accept()
       this.waiting = true
       await transaction.wait()
-      this.waiting = false
-      this.enableClaim()
+      this.toastMessage()
       // console.log(await this.store.provider.send('eth_chainId', []))
-      return
+      return offerContract
     },
-    async enableClaim() {
-      
+    async toastMessage() {
+      alert('you will be able to claim your tokens as soon as the payment is validated by your bank institution')
     },
+
+
     // async claimTokens() {
     //   const offerContract = new ethers.Contract(
     //       localhostAddresses.offer,

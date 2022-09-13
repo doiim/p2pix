@@ -29,14 +29,14 @@ export default {
     return {
       orderbooks: [{
             seller: "0x2546BcD3c84621e976D8185a91A922aE77ECEc30",
-            price: 993.40,
+            price: 0.40,
             token: "ETH",
             tokenAmount: 0.02,
             type: "Oferta",
             expiryDate: "2d:24h:45m"
         },{
             seller: "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199",
-            price: 41.12,
+            price: 0.12,
             token: "IOT",
             tokenAmount: 0.014,
             type: "Oferta",
