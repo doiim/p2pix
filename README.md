@@ -1,5 +1,6 @@
 A trustless p2p solution for exchanging FIAT to ERC20 tokens on L2.
 
+![p2pix flowchart](https://github.com/doiim/p2pix/blob/master/public/p2pix_fluxogram.png?raw=true)
 
 
 The roadmap ideally would be accomplished through improvements to the PIX API, the smart contract would receive and release funds based on a transaction proof that is generated every time PIX is used and displayed on the transaction receipt.
