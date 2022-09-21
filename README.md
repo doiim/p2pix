@@ -48,8 +48,11 @@ https://mumbai.polygonscan.com/address/0x08cd9879d69693e5162b3a3ed24ddab9118d0f0
 https://goerli.etherscan.io/address/0xdd08d2ada2208815238ebe97d41ff219ea129d39
 
 https://p2pix.noho.st
+
 https://youtu.be/nJju7pqyn_I
+
 https://github.com/VagnerDomingues/p2pix
+
 https://www.figma.com/file/oIaOVWGTvicMysidMKxQgb/p2pix?node-id=23%3A2
 
 
