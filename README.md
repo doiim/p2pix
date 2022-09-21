@@ -51,8 +51,6 @@ https://p2pix.noho.st
 
 https://youtu.be/nJju7pqyn_I
 
-https://github.com/VagnerDomingues/p2pix
-
 https://www.figma.com/file/oIaOVWGTvicMysidMKxQgb/p2pix?node-id=23%3A2
 
 
