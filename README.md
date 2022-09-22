@@ -1,4 +1,3 @@
-/
 ![readme header](https://github.com/doiim/p2pix/blob/master/public/readme_header.png?raw=true)
 
 ## A trustless p2p solution for exchanging FIAT to ERC20 tokens.
