@@ -49,10 +49,6 @@ https://www.figma.com/file/oIaOVWGTvicMysidMKxQgb/p2pix?node-id=23%3A2
 
 ––––––––––––––––
 
-### EthSP
-
-https://youtu.be/nJju7pqyn_I
-
 ### ODS 9
 
 9.1 - Desenvolver infraestrutura de qualidade, confiável, sustentável e resiliente, incluindo infraestrutura regional e transfronteiriça, para apoiar o desenvolvimento econômico e o bem-estar humano, com foco no acesso equitativo e a preços acessíveis para todos
