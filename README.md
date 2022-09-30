@@ -12,6 +12,7 @@ For example, in case you want to sell **100 USDC** for the price of 500 BRL, you
 
 ## How it works?
 ![p2pix flowchart](https://github.com/doiim/p2pix/blob/master/public/p2pix_fluxogram.png?raw=true)
+![P2Pix Sequência](https://user-images.githubusercontent.com/71399144/193270360-03f35c42-fd9c-4f4f-8d1c-5acb2b0ac323.jpg)
 
 
 ## Why this solution?
