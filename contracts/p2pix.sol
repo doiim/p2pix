@@ -4,9 +4,9 @@ pragma solidity ^0.8.9;
 
 contract PTwoPIX {
 
-    event DepositAdded(address indexed seller, bytes32 depositId, address token, uint256 amount);
-    event WithdrawSucceeded(address indexed seller, bytes32 depositId, address token, uint256 amount);
-    event LockAdded(address indexed buyer, bytes32 lockId, uint256 amount);
+    event DepositAdded(address indexed seller, bytes32 depositID, address token, uint256 amount);
+    event WithdrawSucceeded(address indexed seller, bytes32 depositID, address token, uint256 amount);
+    event LockAdded(address indexed buyer, bytes32 lockID, uint256 amount);
     event LockReleased(bytes32 lockId);
 
     struct Deposit {
@@ -14,13 +14,15 @@ contract PTwoPIX {
         address token;          // ERC20 stable token address
         uint256 amount;         // Total amount of tokens deposited
         uint256 remaining;      // Remaining tokens available
+        // Block of last lock added to this deposit (To prevent withdraw before lastLock+defaultLockBlocks)
+        uint256 lastLock;
         bool valid;             // Could be invalidated by the seller
     }
 
     struct Lock {
         address targetAddress;          // Where goes the tokens when validated
         address relayerAddress;         // Relayer address that facilitated this transaction
-        address relayerPremium;         // Amount to be paid for relayer
+        uint256 relayerPremium;         // Amount to be paid for relayer
         uint256 amount;                 // Amount to be transfered to buyer
         uint256 expirationBlock;        // IF not paid until this block will be expired
         bool paid;
@@ -39,9 +41,6 @@ contract PTwoPIX {
 
     // ***** ESTA PARTE É A MAIS CRÍTICA VISTO QUE É NECESSÁRIO FORMAS DE TRAVAR DEPOSITOS *****
     // ************ PORÉM SEM A NECESSIDADE DE PERCORRER GRANDES ARRAYS ************************
-    // List of Locks made to deposits
-    mapping(bytes32 => bytes32[]) depositLocks;		// Prevent multiple locks with same ID
-    mapping(bytes32 => uint16) depositLocksSize;
     mapping(bytes32 => Lock) mapLocks;
 
     modifier onlySeller(bytes32 depositID) {
@@ -55,7 +54,12 @@ contract PTwoPIX {
         uint256 amount,
         string calldata pixTarget
     ) public returns (bytes32 depositID){
-
+        // TODO Prevent seller to use same depositID
+        // TODO Transfer tokens to this address
+        Deposit memory d = Deposit(msg.sender, token, amount, amount, 0, true);
+        depositID = keccak256(abi.encodePacked(pixTarget, amount));
+        mapDeposits[depositID] = d;
+        emit DepositAdded(msg.sender, depositID, token, amount);
     }
 
     // Relayer interage adicionando um “lock” na ordem de venda.
@@ -71,7 +75,11 @@ contract PTwoPIX {
         uint256 relayerPremium,
         uint256 amount
     ) public returns (bytes32 lockID){
-
+        lockID = keccak256(abi.encodePacked(depositID, amount, targetAddress));
+        require(mapLocks[lockID].expirationBlock < block.number, "P2PIX: Another lock with same ID is not expired yet.");
+        Lock memory l = Lock(targetAddress, relayerAddress, relayerPremium, amount, block.number+defaultLockBlocks, false);
+        mapLocks[lockID] = l;
+        emit LockAdded(targetAddress, lockID, amount);
     }
 
     // Relayer interage com o smart contract, colocando no calldata o comprovante do PIX realizado.
