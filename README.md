@@ -36,6 +36,7 @@ Currently what’s achievable with the current central bank infrastructure is to
 https://docs.google.com/document/d/104hX6RFC9miXHWcHdygoxlNpXL3ct4X9DoX63ECyc8U/edit?usp=sharing
 
 
+
 ### MVP data
 ––––––––––––––––
 
