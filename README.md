@@ -6,6 +6,7 @@
 ### In short.
 
 The roadmap ideally would be accomplished through improvements to the PIX API, the smart contract receive and releases its funds based on a transaction proof that is generated every time a PIX payment's transaction receipt is validated.
+
 ![p2pix_explorer](https://user-images.githubusercontent.com/71399144/202617017-3d04fa8e-f241-4a53-a2af-1b1b04a48424.png)
 
 For example, in case you want to sell **100 USDC** for the price of 500 BRL, you create an order that **locks it into the contract**. once the user buying the USDC accepts the order it  **saves the buyer address** into the contract and generates a transaction qrCode with the specified value (500 BRL) to the PIX key detailed on the smart contract. Then it allows the necessary transaction to be confirmed and finally send the **Id proof** to the smart contract which in return **releases the fund to the specified buyer address**.
@@ -31,6 +32,8 @@ The protocol requires the token seller to accept some public key as being respon
 
 Currently what’s achievable with the current central bank infrastructure is to use Cartesi Rollups to effortlessly read and validate a signed JSON message inside the dApp. This format, which is not normally suited for smart contracts, can be handled efficiently by the Cartesi Virtual Machine. Accepting such formats is useful as trusted fiat authorities (central banks, financial institutions) may not provide confirmations in a format naturally suited for smart contracts.
 
+## Whitepaper [PT-BR]
+https://docs.google.com/document/d/104hX6RFC9miXHWcHdygoxlNpXL3ct4X9DoX63ECyc8U/edit?usp=sharing
 
 
 ### MVP data
