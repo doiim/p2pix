@@ -1,4 +1,3 @@
-![readme header]]
 ![p2pix_home busca ativada](https://user-images.githubusercontent.com/71399144/202616285-e9b2715f-90af-4c54-abea-5a22275057c1.png)
 
 
@@ -7,14 +6,13 @@
 ### In short.
 
 The roadmap ideally would be accomplished through improvements to the PIX API, the smart contract receive and releases its funds based on a transaction proof that is generated every time a PIX payment's transaction receipt is validated.
-
+![p2pix_explorer](https://user-images.githubusercontent.com/71399144/202617017-3d04fa8e-f241-4a53-a2af-1b1b04a48424.png)
 
 For example, in case you want to sell **100 USDC** for the price of 500 BRL, you create an order that **locks it into the contract**. once the user buying the USDC accepts the order it  **saves the buyer address** into the contract and generates a transaction qrCode with the specified value (500 BRL) to the PIX key detailed on the smart contract. Then it allows the necessary transaction to be confirmed and finally send the **Id proof** to the smart contract which in return **releases the fund to the specified buyer address**.
 
 
 ## How it works?
 ![p2pix arquitetura   pitch Bacen   24_out](https://user-images.githubusercontent.com/71399144/202616981-9f4293ce-bead-4d29-87a2-6cc315feab98.jpg)
-![p2pix_explorer](https://user-images.githubusercontent.com/71399144/202617017-3d04fa8e-f241-4a53-a2af-1b1b04a48424.png)
 
 
 ## Why this solution?
