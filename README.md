@@ -1,4 +1,6 @@
-![readme header](https://github.com/doiim/p2pix/blob/master/public/readme_header.png?raw=true)
+![readme header]]
+![p2pix_home busca ativada](https://user-images.githubusercontent.com/71399144/202616285-e9b2715f-90af-4c54-abea-5a22275057c1.png)
+
 
 ## A trustless p2p solution for exchanging FIAT to ERC20 tokens.
 
@@ -11,7 +13,8 @@ For example, in case you want to sell **100 USDC** for the price of 500 BRL, you
 
 
 ## How it works?
-![p2pix flowchart](https://github.com/doiim/p2pix/blob/master/public/p2pix_fluxogram.png?raw=true)
+![p2pix arquitetura   pitch Bacen   24_out](https://user-images.githubusercontent.com/71399144/202616981-9f4293ce-bead-4d29-87a2-6cc315feab98.jpg)
+![p2pix_explorer](https://user-images.githubusercontent.com/71399144/202617017-3d04fa8e-f241-4a53-a2af-1b1b04a48424.png)
 
 
 ## Why this solution?
