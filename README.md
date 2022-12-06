@@ -1,7 +1,8 @@
-![p2pix_home busca ativada](https://user-images.githubusercontent.com/71399144/202616285-e9b2715f-90af-4c54-abea-5a22275057c1.png)
-
+![comprador_home_busca_ativada](https://user-images.githubusercontent.com/71399144/206033099-501ec886-c74d-4c5e-a8d5-a3d4ba7c326e.png)
 
 ## A trustless p2p solution for exchanging FIAT to ERC20 tokens.
+
+![comprador_home4](https://user-images.githubusercontent.com/71399144/206033294-e089fa29-44ba-4cfe-94b0-5fd546e493fc.png)
 
 ### In short.
 
@@ -23,6 +24,7 @@ LocalBitcoins used to be, and currently still is in certain places such as in Ve
 
 If there is a lack of crypto infrastructure in a country or it is constrained by government will, capital flow naturally is driven to informal p2p and OTC methods. These transactions are inherently less efficient as there is a lot of friction involved in exchanging cash in person, besides the risk involved in having the custody of physical assets there’s also a logistical overhead in operating the currencies which are been traded. Even if the activity is carried out online you still need a third party to escrow the transaction and be available to be called upon in the case of a dispute. So finality is inherently uncertain, especially time wise.
 
+![vendedor_p2pix_Desktop2](https://user-images.githubusercontent.com/71399144/206033500-629d169b-1e56-491a-b50f-6d72744c9c3e.png)
 
 This solution is built with the intention of being ported to other payments systems such as what is intended to be achieved with FEDnow, as well with other legacy systems which have the minimum infrastructure necessary to generate the proofs on a receipt. Potentially if CBDC are open to be used by the general public it becomes another venue where settlement of swaps can be done on a trustless manner, where the only centralization point is the currency issuer itself, therefore an inherent risk which can not be mitigated 
 
