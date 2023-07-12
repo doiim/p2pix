@@ -15,6 +15,7 @@ For example, in case you want to sell **100 USDC** for the price of 500 BRL, you
 
 ## How does it work?
 ![p2pix arquitetura   pitch Bacen   24_out](https://user-images.githubusercontent.com/71399144/202616981-9f4293ce-bead-4d29-87a2-6cc315feab98.jpg)
+
 Sell cryptocurrencies by placing them in an escrow via smart-contracts and define the amount in BRL that will be paid through Pix.
 Pix is a “Brazilian instant payment juggernaut ” that we’re using to develop a disintermediation p2p alternative into swapping fiat money for cryptocurrencies.
 Deal crypto by locking it into a smart-contract and set a price in BRL that will be paid through Pix.
@@ -81,6 +82,7 @@ Sandbox:
 https://p2pix-staging.vercel.app/
 
 Pitches:
+
 [PT-BR]
 - Hackathon Ethereum São Paulo (September/2022) https://docs.google.com/presentation/d/18nOjzByU8nN0BntVbz5qqg5w1tN7pj1mMG_MySzWWpM/edit?usp=sharing
 - Lift Learning for Brazilian Central Bank (November/2022) https://docs.google.com/presentation/d/1nf_9rvv2MsaB3kw3VlZm8cHbwujkVvfskHHlUsC-uI0/edit?usp=sharing
@@ -92,4 +94,5 @@ Pitches:
     - https://nextfintech.com.br/en/
  
 [EN-US]
+
 Rootstock: Bitcoin Scaling Hackathon (July/2023) https://docs.google.com/presentation/d/1ns-rXz0Vc_LltUZCZop_atN60TUjlBIt_W3KSSQcDDY/edit?usp=sharing
