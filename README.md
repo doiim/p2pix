@@ -13,7 +13,7 @@ The roadmap ideally would be accomplished through improvements to the PIX API, t
 For example, in case you want to sell **100 USDC** for the price of 500 BRL, you create an order that **locks it into the contract**. once the user buying the USDC accepts the order it  **saves the buyer address** into the contract and generates a transaction qrCode with the specified value (500 BRL) to the PIX key detailed on the smart contract. Then it allows the necessary transaction to be confirmed and finally sends the **Id proof** to the smart contract which in return **releases the fund to the specified buyer address**.
 
 
-## How it works?
+## How does it work?
 ![p2pix arquitetura   pitch Bacen   24_out](https://user-images.githubusercontent.com/71399144/202616981-9f4293ce-bead-4d29-87a2-6cc315feab98.jpg)
 
 
