@@ -20,11 +20,14 @@ Sell cryptocurrencies by placing them in an escrow via smart-contracts and defin
 
 Pix is a “Brazilian instant payment juggernaut ” that we’re using to develop a disintermediation p2p alternative into swapping fiat money for cryptocurrencies.
 Deal crypto by locking it into a smart-contract and set a price in BRL that will be paid through Pix.
+
 "Person to person via Pix"
 The name should be self-defining: p2pix.
 Counterpart-risk-free peer network solution, really without intermediaries, that enables you to exchange fiat money for cryptocurrency.
 Sell Brazilian stablecoins (assets linked to national fiduciary currency) by placing them in an escrow account with resources locked and automatically released via smart-contracts, define the amount in BRL (Real) that will be paid via Pix.
 At its launch, the p2pix protocol will allow risk removal for users while creating a 'bridge' between fiat and crypto. In the future, it will be possible for a direct integration to be made between Real Digital and public blockchains.
+
+![p2pix_g](https://github.com/doiim/p2pix/assets/71399144/ce50d367-38c8-4bb6-b193-6a3780ab3949)
 
 Step-by-step…
 1. Connect wallet (supported wallets: MetaMask or WalletConnect);
