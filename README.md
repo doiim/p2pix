@@ -15,6 +15,22 @@ For example, in case you want to sell **100 USDC** for the price of 500 BRL, you
 
 ## How does it work?
 ![p2pix arquitetura   pitch Bacen   24_out](https://user-images.githubusercontent.com/71399144/202616981-9f4293ce-bead-4d29-87a2-6cc315feab98.jpg)
+Sell cryptocurrencies by placing them in an escrow via smart-contracts and define the amount in BRL that will be paid through Pix.
+Pix is a “Brazilian instant payment juggernaut ” that we’re using to develop a disintermediation p2p alternative into swapping fiat money for cryptocurrencies.
+Deal crypto by locking it into a smart-contract and set a price in BRL that will be paid through Pix.
+"Person to person via Pix"
+The name should be self-defining: p2pix.
+Counterpart-risk-free peer network solution, really without intermediaries, that enables you to exchange fiat money for cryptocurrency.
+Sell Brazilian stablecoins (assets linked to national fiduciary currency) by placing them in an escrow account with resources locked and automatically released via smart-contracts, define the amount in BRL (Real) that will be paid via Pix.
+At its launch, the p2pix protocol will allow risk removal for users while creating a 'bridge' between fiat and crypto. In the future, it will be possible for a direct integration to be made between Real Digital and public blockchains.
+Step-by-step…
+1. Connect wallet (supported wallets: MetaMask or WalletConnect);
+2. Type amount in Reais (BRL);
+3. Request token (cryptocurrency) = BRZ or MBRL;
+4. Identify the seller (from the list of people);
+- scan QRcode (or add 'Pix key' manually);
+- paste identification code (API Pix / bank receipt);
+5. Receive in your wallet (important to know about self-custody).
 
 
 ## Why this solution?
