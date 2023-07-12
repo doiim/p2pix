@@ -29,8 +29,8 @@ Step-by-step…
 2. Type amount in Reais (BRL);
 3. Request token (cryptocurrency) = BRZ or MBRL;
 4. Identify the seller (from the list of people);
-- scan QRcode (or add 'Pix key' manually);
-- paste identification code (API Pix / bank receipt);
+  - scan QRcode (or add 'Pix key' manually);
+  - paste identification code (API Pix / bank receipt);
 5. Receive in your wallet (important to know about self-custody).
 
 
